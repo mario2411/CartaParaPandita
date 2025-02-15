@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1 id="valentine-title">¡Feliz San Valentín, pandita! ❤️</h1>
+
+    <div id="login-screen" class="visible">
+        <h2>Adivina la contraseña para ver tu regalo 🙈</h2>
+        <input type="password" id="password-input" placeholder="Espero la adivines👀">
+        <button onclick="checkPassword()">Entrar</button>
+        <p id="error-message"></p>
+    </div>
+    
+    
+    <div id="card-container" class="hidden">
+        <img id="card-image" src="carta-cerrada.png" alt="Carta cerrada" onclick="openCard()">
+        <p id="open-text">¡Ábreme! ⬆️🙉</p>
+        <div id="message" class="hidden">
+            Han sido más de cuatro años de amor, crecimiento y apoyo incondicional, y no hay un solo instante en el que no agradezca tenerte a mi lado. Hoy y siempre, quiero seguir construyendo nuestro futuro juntos. Te amo con todo mi corazón.
+        </div>
+        <div id="emoji-container" class="hidden">🐼🦍</div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>

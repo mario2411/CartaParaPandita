@@ -1,0 +1,264 @@
+/* Estilos generales */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: purple;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+/* Pantalla de ingreso de contraseña */
+#login-screen {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+h2 {
+    font-size: 24px;
+    color: lightgreen;
+    font-weight: bold;
+}
+
+#password-input {
+    padding: 10px;
+    border: 2px solid #d63384;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #d63384;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #a02265;
+}
+
+/* Contenedor de la carta */
+#card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+/* Tamaño normal de la imagen de la carta cerrada */
+#card-image {
+    width: 420px;  /* Tamaño inicial */
+    height: auto;
+    cursor: pointer;
+    transition: width 0.5s ease-in-out; /* Animación suave */
+}
+
+/* Tamaño más grande cuando la carta está abierta */
+#card-image.open {
+    width: 600px; /* Nuevo tamaño */
+}
+
+/* Texto de "Ábreme" */
+#open-text {
+    text-align: center;
+    font-size: 18px;
+    color: palevioletred;
+    font-weight: bold;
+    margin-top: 10px;
+    transition: opacity 0.3s;
+}
+
+/* Mensaje dentro de la carta */
+#message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-52%, -82%);
+    width: 50%;
+    text-align: center;
+    font-size: 14px;
+    color: black;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    /* background: rgba(255, 255, 255, 0.8);*/
+    padding: 10px;
+    border-radius: 10px;
+    display: none !important; /* Oculto por defecto con !important */
+}
+
+/* Clases de visibilidad */
+.hidden {
+    display: none !important;
+}
+
+.visible {
+    display: block;
+}
+
+/* Mensaje de error para la contraseña */
+#error-message {
+    color: palevioletred;
+    font-size: 16px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Contenedor de los corazones */
+.hearts-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Para que no interfiera con los clics */
+    overflow: hidden;
+}
+
+/* Estilo base de los corazones */
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    opacity: 0.8;
+    animation: fall linear infinite;
+}
+
+/* Animación para hacer que los corazones caigan */
+@keyframes fall {
+    from {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Estilo del título principal */
+#valentine-title {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 40px;
+    color: #f17ea4;
+    text-shadow: 3px 3px 10px rgba(255, 64, 129, 0.7);
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Efecto de brillo para el título */
+@keyframes glow {
+    from {
+        text-shadow: 3px 3px 10px rgba(255, 64, 129, 0.7);
+    }
+    to {
+        text-shadow: 3px 3px 20px rgba(255, 64, 129, 1);
+    }
+}
+
+/* Estilos para pantallas más pequeñas (menos de 600px de ancho) */
+@media screen and (max-width: 600px) {
+    /* Ajuste del título */
+    #valentine-title {
+        font-size: 28px;
+        top: 10px;
+    }
+
+    /* Pantalla de ingreso de contraseña */
+    #login-screen {
+        width: 90%;
+    }
+
+    #password-input {
+        width: 80%;
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    button {
+        width: 50%;
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+
+    /* Tamaño de la carta */
+    #card-image {
+        width: 80vw; /* Ajuste dinámico al ancho de la pantalla */
+        max-width: 350px; /* Máximo de 350px para evitar que sea demasiado grande */
+    }
+
+    /* Cuando la carta está abierta */
+    #card-image.open {
+        width: 90vw;
+        max-width: 500px;
+    }
+
+    /* Ajuste del mensaje dentro de la carta */
+    #message {
+        width: 70%;
+        font-size: 12px;
+        transform: translate(-50%, -70%);
+    }
+
+    /* Texto de "Ábreme" */
+    #open-text {
+        font-size: 16px;
+    }
+}
+
+/* Estilos para pantallas aún más pequeñas (menos de 400px de ancho) */
+@media screen and (max-width: 400px) {
+    #valentine-title {
+        font-size: 24px;
+    }
+
+    #password-input {
+        width: 90%;
+        font-size: 12px;
+    }
+
+    button {
+        width: 60%;
+        font-size: 12px;
+    }
+
+    /* Reducir la carta para pantallas muy pequeñas */
+    #card-image {
+        width: 70vw;
+        max-width: 300px;
+    }
+
+    #card-image.open {
+        width: 85vw;
+        max-width: 450px;
+    }
+
+    /* Ajustar el mensaje */
+    #message {
+        width: 80%;
+        font-size: 10px;
+        transform: translate(-50%, -65%);
+    }
+}
+
+#emoji-container {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    display: none !important; /* Oculto por defecto */
+}
